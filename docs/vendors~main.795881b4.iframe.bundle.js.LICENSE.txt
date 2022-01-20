@@ -40,6 +40,17 @@ object-assign
  * Released under the MIT License.
  */
 
+/*! 
+  * portal-vue © Thorsten Lünborg, 2019 
+  * 
+  * Version: 2.1.7
+  * 
+  * LICENCE: MIT 
+  * 
+  * https://github.com/linusborg/portal-vue
+  * 
+ */
+
 /**
   * vue-class-component v7.2.6
   * (c) 2015-present Evan You
