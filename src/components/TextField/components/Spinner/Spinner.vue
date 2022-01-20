@@ -2,15 +2,14 @@
 div(
   aria-hidden="true",
   :class="wrapperClassName",
-  @click="$emit('click')",
 )
   div(
     role="button",
     tabindex="-1",
     :class="segmentClassName",
     @click="handleStep(1)",
-    @mousedown="$emit('mouse-down')",
-    @mouseup="$emit('mouse-up')",
+    @mousedown="$emit('mousedown')",
+    @mouseup="$emit('mouseup')",
   )
     div(:class="iconClassName")
       Icon(:source="iconCaretUpMinor")
@@ -19,8 +18,8 @@ div(
     tabindex="-1",
     :class="segmentClassName",
     @click="handleStep(-1)",
-    @mousedown="$emit('mouse-down')",
-    @mouseup="$emit('mouse-up')",
+    @mousedown="$emit('mousedown')",
+    @mouseup="$emit('mouseup')",
   )
     div(:class="iconClassName")
       Icon(:source="iconCaretDownMinor")
@@ -31,7 +30,7 @@ import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
 import CaretDownMinor from '@shopify/polaris-icons/dist/svg/CaretDownMinor.svg';
 import CaretUpMinor from '@shopify/polaris-icons/dist/svg/CaretUpMinor.svg';
-import { Icon } from '@/components';
+import { Icon } from '@/components/Icon';
 import styles from '@/classes/TextField.json';
 
 @Component({
