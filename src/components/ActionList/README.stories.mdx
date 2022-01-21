@@ -145,18 +145,18 @@ export const itemExamples = (args, { argTypes }) => ({
       this.active = !this.active;
     },
     handleImportedAction() {
-      console.log('Imported!');
+      alert('Imported!');
     },
     handleExportedAction() {
-      console.log('Exported!');
+      alert('Exported!');
     }
   },
   template: ` <div :style="{display: 'flex', flexDirection: 'row', gap: '40px', justifyContent: 'center'}">
     <Popover
       :active="active"
       autofocusTarget="first-node"
-      v-on:click="toggle"
-      on-click="toggle"
+      v-on:close="toggle"
+      on-close="toggle"
     >
       <Button slot="activator" :disclosure="true" v-on:click="toggle" on-click="toggle">
         In a Popover
@@ -196,6 +196,7 @@ itemExamples.parameters = {
         .replace(/<template>\s*/, '')
         .replace(/\s*<\/template>/, '')
         .replace(/on-click/g, 'v-on:click')
+        .replace(/on-close/g, 'v-on:close')
         .replace(/:items='(.*)'\s*/g, '')
         .replace(/:source='(.*)'\s*/g, '')
         .replace(/data-items/g, ':items')
@@ -257,10 +258,10 @@ itemExamples.parameters = {
             this.active = !this.active;
           },
           handleImportedAction() {
-            console.log('Imported!');
+            alert('Imported!');
           },
           handleExportedAction() {
-            console.log('Exported!');
+            alert('Exported!');
           }
         },
         ${tmpSource}
