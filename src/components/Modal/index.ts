@@ -1,4 +1,8 @@
 export { default as Modal } from './Modal.vue';
-export { Dialog as ModalDialog } from './components';
-export { Header as ModalHeader } from './components';
-export { CloseButton as ModalCloseButton } from './components';
+export {
+  Dialog as ModalDialog,
+  Footer as ModalFooter,
+  Header as ModalHeader,
+  Section as ModalSection,
+  CloseButton as ModalCloseButton,
+} from './components';
