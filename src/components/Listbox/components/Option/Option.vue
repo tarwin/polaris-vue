@@ -53,9 +53,10 @@ import {
 import { ListboxContextType } from 'polaris-react/src/utilities/listbox';
 import { UseUniqueId } from '@/mixins';
 import styles from '@/classes/Listbox-Option.json';
+import { MappedActionManager } from '@/utilities/autocomplete-manager';
 import { TextOption } from '../TextOption';
 import { UnstyledLink } from '../../../UnstyledLink';
-import { MappedActionContextType, OptionProps } from './utils';
+import { OptionProps } from './utils';
 
 @Component({
   components: {
@@ -64,7 +65,7 @@ import { MappedActionContextType, OptionProps } from './utils';
   },
 })
 export default class ListBox extends Mixins(UseUniqueId) {
-  @Inject({ default: {} }) mappedActionContext!: MappedActionContextType;
+  @Inject({ default: new MappedActionManager() }) mappedActionContext!: MappedActionManager;
 
   @Inject({ default: '' }) sectionContext!: string;
 
