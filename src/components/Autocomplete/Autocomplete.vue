@@ -4,6 +4,8 @@
     :preferredPosition="preferredPosition",
     @scrolled-to-bottom="$emit('load-more-results')",
   )
+    template(slot="activator")
+      ComboboxTextField
 </template>
 
 <script lang="ts">
@@ -17,7 +19,7 @@ import type {
 import { isSection } from 'polaris-react/src/utilities/options';
 import styles from '@/classes/Autocomplete.json';
 import type { PreferredPosition } from '../PositionedOverlay';
-import { Combobox } from '../Combobox';
+import { Combobox, ComboboxTextField } from '../Combobox';
 import { Listbox } from '../Listbox';
 import { MappedAction, MappedOption } from './components';
 
