@@ -47,7 +47,7 @@ div
           v-else,
           :shadow="true",
           :class="bodyClass",
-          @scroll-to-bottom="$emit('scroll-to-bottom')",
+          @scrolled-to-bottom="$emit('scrolled-to-bottom')",
         )
           div(
             v-if="loading",
@@ -72,7 +72,6 @@ div
 import {
   Component, Mixins, Prop, Ref,
 } from 'vue-property-decorator';
-import { durationBase } from '@shopify/polaris-tokens';
 import { ComplexAction } from '@/interface';
 import { UseUniqueId } from '@/mixins';
 import { focusFirstFocusableNode } from '@/utilities/focus';
@@ -194,8 +193,6 @@ export default class Modal extends Mixins(UseUniqueId) {
   public iframeHeight = IFRAME_LOADING_HEIGHT;
 
   public hasActivator = false;
-
-  public duration = durationBase;
 
   public handleIFrameLoad(evt: Event) {
     const iframe = evt.target as HTMLIFrameElement;
