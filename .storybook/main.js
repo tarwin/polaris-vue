@@ -28,6 +28,9 @@ module.exports = {
     );
 
     return mergeConfig(previousConfig, {
+      output: {
+        publicPath: '/polaris-vue',
+      },
       resolve: { ...config.resolve },
       plugins: [
         svgLoader(),
