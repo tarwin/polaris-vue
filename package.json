@@ -1,6 +1,6 @@
 {
   "name": "@qikify/polaris-vue",
-  "version": "0.4.0",
+  "version": "0.5.1",
   "polaris_version": "9.2.2",
   "description": "Shopify Polaris UI library for Vue 3",
   "author": {
@@ -75,7 +75,7 @@
     "typescript": "~4.5.5",
     "vite": "^2.8.6",
     "vite-plugin-checker": "^0.4.2",
-    "vite-plugin-dts": "^0.9.9",
+    "vite-plugin-dts": "^1.0.4",
     "vite-plugin-eslint": "^1.3.0",
     "vite-plugin-replace": "^0.1.1",
     "vue-tsc": "^0.32.1"

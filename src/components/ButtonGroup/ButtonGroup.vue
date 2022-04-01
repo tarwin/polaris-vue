@@ -5,14 +5,11 @@ div(
   :data-buttongroup-connected-top="connectedTop",
   :data-buttongroup-full-width="fullWidth",
 )
-  template(
-    v-if="slots.default",
+  Item(
+    v-for="(item, index) in itemMarkup",
+    :key="index"
   )
-    Item(
-      v-for="(item, index) in slots.default()",
-      :key="index"
-    )
-      component(:is="item")
+    component(:is="item")
 </template>
 
 <script lang="ts">
@@ -23,9 +20,11 @@ export default {
 
 <script setup lang="ts">
 import { computed, useSlots } from 'vue';
+import type { VNodeArrayChildren } from 'vue';
 import { classNames } from 'polaris-react/src/utilities/css';
 import { Item } from './components';
 import styles from '@/classes/ButtonGroup.json';
+import { hasSlot } from '@/utilities/has-slot';
 
 type Spacing = 'extraTight' | 'tight' | 'loose';
 
@@ -43,6 +42,27 @@ interface Props {
 const props = defineProps<Props>();
 
 const slots = useSlots();
+
+const itemMarkup = computed(() => {
+  const items : VNodeArrayChildren = [];
+  if (slots.default) {
+    slots.default().map(item => {
+      const children = item.children as VNodeArrayChildren;
+      if (typeof children === 'string' && children === 'v-if') {
+        return;
+      }
+
+      if (item.type.toString() === 'Symbol(Fragment)') {
+        children.forEach(child => {
+          items.push(child);
+        });
+      } else {
+        items.push(item);
+      }
+    });
+  }
+  return items;
+});
 
 const className = computed(() => {
   return classNames(
