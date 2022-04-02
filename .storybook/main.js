@@ -29,9 +29,6 @@ module.exports = {
 
     const finalConfig = mergeConfig(buildConfig, {
       base: configType === 'PRODUCTION' ? 'polaris-vue' : '',
-      output: {
-        publicPath: '/polaris-vue',
-      },
       resolve: { ...config.resolve },
       plugins: [
         svgLoader(),
@@ -41,7 +38,6 @@ module.exports = {
       ],
     });
 
-    console.log(finalConfig);
     return finalConfig;
   },
 }
