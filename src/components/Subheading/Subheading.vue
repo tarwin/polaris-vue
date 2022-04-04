@@ -27,6 +27,7 @@ const props = withDefaults(defineProps<SubheadingProps>(), {
 const slots = useSlots();
 
 const isTextOnlySlot = computed(() => {
+  console.log(123, slots.default && slots.default());
   return slots.default
     && slots.default()[0]?.type.toString() === 'Symbol(Text)'
 });
