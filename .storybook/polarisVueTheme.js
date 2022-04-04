@@ -4,7 +4,7 @@ export default create({
   base: 'light',
   brandTitle: 'Qikify Polaris Storybook',
   brandUrl: '/',
-  brandImage: 'https://github.com/qikify/polaris-vue/blob/master/public/images/brand.png?raw=true',
+  brandImage: 'images/brand.png',
   appBorderRadius: 0,
   colorPrimary: '#008060',
   colorSecondary: '#008060',

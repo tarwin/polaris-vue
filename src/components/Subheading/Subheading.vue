@@ -28,8 +28,10 @@ const slots = useSlots();
 
 const isTextOnlySlot = computed(() => {
   console.log(123, slots.default && slots.default());
+  console.log(4, slots.default && slots.default()[0].el);
   return slots.default
-    && slots.default()[0]?.type.toString() === 'Symbol(Text)';
+    && (slots.default()[0]?.type.toString() === 'Symbol(Text)'
+    || slots.default()[0]?.type.toString() === 'Symbol()');
 });
 
 const ariaLabel = isTextOnlySlot.value ? (slots.default && slots.default()[0].children) : undefined;
