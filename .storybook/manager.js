@@ -1,5 +1,5 @@
 import {addons} from '@storybook/addons';
-import theme from './polarisVueTheme';
+import { create } from '@storybook/theming';
 
 addons.setConfig({
   previewTabs: {
