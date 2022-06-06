@@ -28,6 +28,13 @@ module.exports = {
 
     const finalConfig = mergeConfig(buildConfig, {
       base: configType === 'PRODUCTION' ? 'polaris-vue' : '',
+      css: {
+        preprocessorOptions: {
+          scss: {
+            quietDeps: true, // Silent the deprecation warning
+          },
+        },
+      },
       resolve: { ...config.resolve },
       plugins: [
         svgLoader(),
